@@ -13,7 +13,7 @@ const About: React.FC<AboutProps> = ({ id, images }) => {
         <div className="lg:grid lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl"></div>
-            <img alt="Equipe Cabeceira e Visão" className="rounded-[3rem] shadow-2xl relative z-10 w-full object-cover aspect-video" src={images.ABOUT} />
+            <img alt="Equipe Cabeceira e Visão" className="rounded-[3rem] shadow-2xl relative z-10 w-full object-cover aspect-[4/3]" src={images.ABOUT} />
             <div className="absolute -bottom-8 -right-8 bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl z-20 max-w-xs border border-slate-100 dark:border-slate-700 hidden md:block">
               <p className="text-primary dark:text-accent font-bold text-lg mb-2">Compromisso Regenerativo</p>
               <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Transformando a cafeicultura através da ciência e do respeito à terra.</p>

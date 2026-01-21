@@ -8,9 +8,9 @@ interface TestimonialProps {
 const Testimonials: React.FC<TestimonialProps> = ({ images }) => {
   const testimonials = [
     {
-      name: "João Pereira",
-      role: "Cafeicultor em Minas Gerais",
-      content: "O diagnóstico da Cabeceira mudou minha visão sobre o solo. Em um ano, reduzimos o uso de químicos em 20% e a planta está muito mais vigorosa.",
+      name: "André Forecchi",
+      role: "Cafeicultor Iniciante no Espírito Santo/Santa Teresa",
+      content: "O diagnóstico e acompanhamento com a Cabeceira fez da frustração de uma lavoura pobre e abandonada, uma lavoura saudável, produtiva e alinhada com princípios e valores que eu sempre acreditei.",
       img: images.TESTIMONIAL_1
     },
     {

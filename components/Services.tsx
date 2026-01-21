@@ -67,7 +67,7 @@ const Services: React.FC<{ id: string; images: Record<string, string> }> = ({ id
           />
           <div className="md:col-span-2">
             <ServiceCard 
-              image={images.ABOUT} 
+              image={images.SERVICE_ASSISTENCIA} 
               icon="support_agent" 
               title="Assistência Técnica Regenerativa" 
               description="Oferecemos acompanhamento técnico contínuo, com agrônomo especialista em agricultura regenerativa. Parceria para adaptar a lavoura às mudanças climáticas."
