@@ -7,10 +7,10 @@ interface TargetAudienceProps {
 
 const TargetAudience: React.FC<TargetAudienceProps> = ({ images }) => {
   const targets = [
-    'Inesperiente: Quer começar a produzir café e não sabe por onde começar.',
-    'Quem deseja fazer a transição de monocultura no plantio para sistemas agroflorestais.',
-    'Agricultores que não sabem como está a saúde do seu solo.',
-    'Cooperativas que buscam padronizar a qualidade da safra.',
+    <span key="t1"><strong>Quem é inexperiente:</strong> Quer começar a produzir café e não sabe por onde começar.</span>,
+    <span key="t2"><strong>Quem quer fazer a transição:</strong> Deseja fazer a transição de monocultura no plantio para sistemas agroflorestais.</span>,
+    <span key="t3"><strong>Quer saber a saúde do solo:</strong> Agricultores que não sabem como está a saúde do seu solo.</span>,
+    <span key="t4"><strong>Quer reduzir veneno no plantio:</strong> Quer melhorar a qualidade do café e reduzir o veneno no plantio.</span>,
   ];
 
   return (
