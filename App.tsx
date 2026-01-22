@@ -12,6 +12,7 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import WhatsAppButton from './components/WhatsAppButton';
 import { DEFAULT_IMAGES } from './constants';
 
 const App: React.FC = () => {
@@ -44,6 +45,7 @@ const App: React.FC = () => {
       </main>
       <Footer images={images} />
       <ScrollToTop />
+      <WhatsAppButton />
     </div>
   );
 };
