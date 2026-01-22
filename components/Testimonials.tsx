@@ -14,9 +14,9 @@ const Testimonials: React.FC<TestimonialProps> = ({ images }) => {
       img: images.TESTIMONIAL_1
     },
     {
-      name: "Maria Silveira",
-      role: "Produtora de Cafés Especiais",
-      content: "A transição para o sistema agroflorestal parecia impossível até a consultoria deles. Hoje meu café tem uma nota muito maior no mercado.",
+      name: "Aparecido da Silva Gomes",
+      role: "Agricultura Familiar | Araraquara",
+      content: "Como viveirista, a assistência técnica oferecida pela Cabeceira foi e continua sendo fundamental para garantir mudas de café sadias, bem formadas e com alto padrão de qualidade.",
       img: images.TESTIMONIAL_2
     }
   ];

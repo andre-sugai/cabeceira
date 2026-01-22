@@ -15,7 +15,7 @@ export const DEFAULT_IMAGES = {
   VISION: "/imagens/site/webp/imagem_destaque_cabeceira.webp",
   PATTERN: "https://www.transparenttextures.com/patterns/p6.png",
   TESTIMONIAL_1: "/imagens/depoimentos/depoimento1.webp?auto=format&fit=crop&q=80&w=200",
-  TESTIMONIAL_2: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200",
+  TESTIMONIAL_2: "/imagens/depoimentos/depoimento2.webp?auto=format&fit=crop&q=80&w=200",
 };
 
 export const CONTACT_WHATSAPP = "https://wa.me/5500000000000";

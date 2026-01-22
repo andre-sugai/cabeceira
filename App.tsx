@@ -11,7 +11,7 @@ import Vision from './components/Vision';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
-import StudioMode from './components/StudioMode';
+import ScrollToTop from './components/ScrollToTop';
 import { DEFAULT_IMAGES } from './constants';
 
 const App: React.FC = () => {
@@ -19,16 +19,6 @@ const App: React.FC = () => {
   const [images, setImages] = useState<Record<string, string>>(DEFAULT_IMAGES);
 
   useEffect(() => {
-    // Load persisted images if any
-    const saved = localStorage.getItem('cabeceira_images');
-    if (saved) {
-      try {
-        setImages(JSON.parse(saved));
-      } catch (e) {
-        console.error("Failed to parse saved images");
-      }
-    }
-
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
@@ -37,10 +27,6 @@ const App: React.FC = () => {
   }, [isDarkMode]);
 
   const toggleDarkMode = () => setIsDarkMode(prev => !prev);
-  const handleReset = () => {
-    setImages(DEFAULT_IMAGES);
-    localStorage.removeItem('cabeceira_images');
-  };
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 transition-colors duration-300">
@@ -57,8 +43,7 @@ const App: React.FC = () => {
         <CTA id="contato" images={images} />
       </main>
       <Footer images={images} />
-      
-      <StudioMode images={images} setImages={setImages} onReset={handleReset} />
+      <ScrollToTop />
     </div>
   );
 };

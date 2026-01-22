@@ -20,7 +20,12 @@ const CTA: React.FC<CTAProps> = ({ id, images }) => {
             Invista R$ 360 no futuro da sua produção e colha os benefícios de uma cafeicultura de precisão e regenerativa.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
-            <a className="w-full sm:w-auto bg-accent text-primary px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-2xl" href="#">
+            <a 
+              href="https://buy.stripe.com/test_5kQbJ296q9WJcF78hS6oo00"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-accent text-primary px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-2xl inline-block"
+            >
               Começar Agora
             </a>
             <a 
