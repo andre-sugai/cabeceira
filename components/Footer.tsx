@@ -3,11 +3,12 @@ import Modal from './Modal';
 
 interface FooterProps {
   images: Record<string, string>;
+  onNavigate: (page: string) => void;
 }
 
-type ModalType = 'termos' | 'privacidade' | 'faq' | null;
+type ModalType = 'termos' | 'faq' | null;
 
-const Footer: React.FC<FooterProps> = ({ images }) => {
+const Footer: React.FC<FooterProps> = ({ images, onNavigate }) => {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
 
   const getModalContent = (type: ModalType) => {
@@ -80,17 +81,7 @@ const Footer: React.FC<FooterProps> = ({ images }) => {
             </div>
           )
         };
-      case 'privacidade':
-        return {
-          title: 'Política de Privacidade',
-          content: (
-            <div className="space-y-4">
-              <p>A sua privacidade é importante para nós. É política do Cabeceira Digital respeitar a sua privacidade em relação a qualquer informação que possamos coletar no site Cabeceira Digital, e outros sites que possuímos e operamos.</p>
-              <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.</p>
-              <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
-            </div>
-          )
-        };
+
       case 'faq':
         return {
           title: 'Perguntas Frequentes (FAQ)',
@@ -135,7 +126,7 @@ const Footer: React.FC<FooterProps> = ({ images }) => {
                 Termos de Uso
               </button>
               <button 
-                onClick={() => setActiveModal('privacidade')}
+                onClick={() => onNavigate('privacidade')}
                 className="hover:text-primary dark:hover:text-accent transition-colors bg-transparent border-none cursor-pointer"
               >
                 Privacidade

@@ -5,16 +5,20 @@ interface NavbarProps {
   toggleDarkMode: () => void;
   isDarkMode: boolean;
   images: Record<string, string>;
+  onNavigateHome?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode, images }) => {
+const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode, images, onNavigateHome }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center gap-3">
+          <div
+            className={`flex items-center gap-3 ${onNavigateHome ? 'cursor-pointer' : ''}`}
+            onClick={onNavigateHome}
+          >
             <img alt="Cabeceira Logo" className="h-10 w-auto rounded-lg" src={images.LOGO} />
             <span className="text-xl font-extrabold tracking-tight text-primary dark:text-accent">Cabeceira</span>
           </div>

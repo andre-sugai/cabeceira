@@ -13,11 +13,20 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import { DEFAULT_IMAGES } from './constants';
+
+type Page = 'home' | 'privacidade';
+
+const pathToPage = (pathname: string): Page => {
+  if (pathname === '/privacidade') return 'privacidade';
+  return 'home';
+};
 
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [images, setImages] = useState<Record<string, string>>(DEFAULT_IMAGES);
+  const [images] = useState<Record<string, string>>(DEFAULT_IMAGES);
+  const [currentPage, setCurrentPage] = useState<Page>(() => pathToPage(window.location.pathname));
 
   useEffect(() => {
     if (isDarkMode) {
@@ -27,7 +36,37 @@ const App: React.FC = () => {
     }
   }, [isDarkMode]);
 
+  // Sync URL → state when user navigates with browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(pathToPage(window.location.pathname));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const toggleDarkMode = () => setIsDarkMode(prev => !prev);
+
+  const navigateTo = (page: Page | string) => {
+    const newPath = page === 'privacidade' ? '/privacidade' : '/';
+    window.history.pushState({}, '', newPath);
+    setCurrentPage(page as Page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateHome = () => navigateTo('home');
+
+  if (currentPage === 'privacidade') {
+    return (
+      <PrivacyPolicyPage
+        toggleDarkMode={toggleDarkMode}
+        isDarkMode={isDarkMode}
+        images={images}
+        onNavigateHome={navigateHome}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 transition-colors duration-300">
@@ -43,7 +82,7 @@ const App: React.FC = () => {
         <Testimonials images={images} />
         <CTA id="contato" images={images} />
       </main>
-      <Footer images={images} />
+      <Footer images={images} onNavigate={navigateTo} />
       <ScrollToTop />
       <WhatsAppButton />
     </div>
