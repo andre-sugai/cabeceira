@@ -5,6 +5,7 @@
 export const DEFAULT_IMAGES = {
   LOGO: "/imagens/site/webp/logo_cabeceira.webp",
   HERO: "/imagens/site/webp/assistencia_tecnica_regenerativa_cabeceira.webp",
+  HERO_BEMVIVER: "/imagens/site/webp/ater-bem-viver.webp",
   ABOUT: "/imagens/site/webp/equipe_cabeceira.webp",
   SERVICE_MUDAS: "/imagens/site/webp/mudas_cabeceira.webp",
   SERVICE_BIOINSUMOS: "/imagens/site/webp/bioinsumos-cabeceira.webp",

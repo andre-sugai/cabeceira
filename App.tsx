@@ -9,13 +9,15 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import BemViverPage from './components/BemViverPage';
 import PasswordModal from './components/PasswordModal';
 import { DEFAULT_IMAGES } from './constants';
 
-type Page = 'home' | 'privacidade';
+type Page = 'home' | 'privacidade' | 'bemviver';
 
 const pathToPage = (pathname: string): Page => {
   if (pathname === '/privacidade') return 'privacidade';
+  if (pathname === '/bemviver') return 'bemviver';
   return 'home';
 };
 
@@ -48,7 +50,9 @@ const App: React.FC = () => {
   const toggleDarkMode = () => setIsDarkMode(prev => !prev);
 
   const navigateTo = (page: Page | string) => {
-    const newPath = page === 'privacidade' ? '/privacidade' : '/';
+    let newPath = '/';
+    if (page === 'privacidade') newPath = '/privacidade';
+    else if (page === 'bemviver') newPath = '/bemviver';
     window.history.pushState({}, '', newPath);
     setCurrentPage(page as Page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -76,9 +80,21 @@ const App: React.FC = () => {
     );
   }
 
+  if (currentPage === 'bemviver') {
+    return (
+      <BemViverPage
+        toggleDarkMode={toggleDarkMode}
+        isDarkMode={isDarkMode}
+        images={images}
+        onNavigateHome={navigateHome}
+        onNavigate={navigateTo}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 transition-colors duration-300">
-      <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} images={images} />
+      <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} images={images} onNavigate={navigateTo} />
       <main>
         <About id="quem-somos" images={images} />
         <Services id="nossos-servicos" images={images} />
