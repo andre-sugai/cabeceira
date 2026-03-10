@@ -5,12 +5,12 @@ import About from './components/About';
 import Services from './components/Services';
 import Vision from './components/Vision';
 import Testimonials from './components/Testimonials';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import BemViverPage from './components/BemViverPage';
 import PasswordModal from './components/PasswordModal';
+
 import { DEFAULT_IMAGES } from './constants';
 
 type Page = 'home' | 'privacidade' | 'bemviver';
@@ -22,8 +22,9 @@ const pathToPage = (pathname: string): Page => {
 };
 
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
-    () => sessionStorage.getItem('cabeceira_auth') === 'true'
+
+  const [isBemViverAuthenticated, setIsBemViverAuthenticated] = useState<boolean>(
+    () => sessionStorage.getItem('bemviver_auth') === 'true'
   );
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [images] = useState<Record<string, string>>(DEFAULT_IMAGES);
@@ -60,14 +61,7 @@ const App: React.FC = () => {
 
   const navigateHome = () => navigateTo('home');
 
-  const handleAuthSuccess = () => {
-    setIsAuthenticated(true);
-    sessionStorage.setItem('cabeceira_auth', 'true');
-  };
 
-  if (!isAuthenticated) {
-    return <PasswordModal onSuccess={handleAuthSuccess} />;
-  }
 
   if (currentPage === 'privacidade') {
     return (
@@ -81,6 +75,16 @@ const App: React.FC = () => {
   }
 
   if (currentPage === 'bemviver') {
+    if (!isBemViverAuthenticated) {
+      return (
+        <PasswordModal
+          onSuccess={() => {
+            setIsBemViverAuthenticated(true);
+            sessionStorage.setItem('bemviver_auth', 'true');
+          }}
+        />
+      );
+    }
     return (
       <BemViverPage
         toggleDarkMode={toggleDarkMode}
@@ -100,7 +104,6 @@ const App: React.FC = () => {
         <Services id="nossos-servicos" images={images} />
         <Vision images={images} />
         <Testimonials images={images} />
-        <CTA id="contato" images={images} />
       </main>
       <Footer images={images} onNavigate={navigateTo} />
       <ScrollToTop />

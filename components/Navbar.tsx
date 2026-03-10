@@ -29,6 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode, images, onN
             <a className="hover:text-primary dark:hover:text-accent font-medium transition-colors cursor-pointer" onClick={() => onNavigate?.('home')}>Home</a>
             <a className="hover:text-primary dark:hover:text-accent font-medium transition-colors cursor-pointer" onClick={() => onNavigate?.('home')}>Quem somos</a>
             <a className="hover:text-primary dark:hover:text-accent font-medium transition-colors cursor-pointer" onClick={() => onNavigate?.('bemviver')}>Ater bem viver</a>
+            <a className="hover:text-primary dark:hover:text-accent font-medium transition-colors cursor-pointer" href="#contato">Diagnóstico Digital</a>
             
             <button 
               onClick={toggleDarkMode}
@@ -41,13 +42,6 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode, images, onN
                 <span className="material-icons-round">dark_mode</span>
               )}
             </button>
-            
-            <a 
-              className="bg-primary text-white px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20" 
-              href="#contato"
-            >
-              Diagnóstico Digital
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -84,7 +78,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode, images, onN
             <a onClick={() => { setIsMenuOpen(false); onNavigate?.('bemviver'); }} className="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-lg font-medium transition-colors cursor-pointer">Ater bem viver</a>
             <a 
               onClick={() => setIsMenuOpen(false)}
-              className="px-4 py-2 bg-primary text-white text-center rounded-lg font-bold shadow-lg shadow-primary/20" 
+              className="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-lg font-medium transition-colors cursor-pointer" 
               href="#contato"
             >
               Diagnóstico Digital
