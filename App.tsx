@@ -119,8 +119,8 @@ const App: React.FC = () => {
       <main>
         <About id="quem-somos" images={images} />
         <Services id="nossos-servicos" images={images} />
-        <Vision images={images} />
-        <Testimonials images={images} />
+        <Vision id="nossa-visao" images={images} />
+        <Testimonials id="depoimentos" images={images} />
       </main>
       <Footer images={images} onNavigate={navigateTo} />
       <ScrollToTop />

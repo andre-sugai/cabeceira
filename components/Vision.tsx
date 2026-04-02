@@ -3,11 +3,12 @@ import React from 'react';
 
 interface VisionProps {
   images: Record<string, string>;
+  id?: string;
 }
 
-const Vision: React.FC<VisionProps> = ({ images }) => {
+const Vision: React.FC<VisionProps> = ({ images, id }) => {
   return (
-    <section className="py-24 relative overflow-hidden bg-white dark:bg-background-dark">
+    <section id={id} className="py-24 relative overflow-hidden bg-white dark:bg-background-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
