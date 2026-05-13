@@ -12,6 +12,7 @@ import BemViverPage from './components/BemViverPage';
 import CapacitacaoPage from './components/CapacitacaoPage';
 import PasswordModal from './components/PasswordModal';
 import DesignSystemPage from './components/DesignSystemPage';
+import LiveStreamModal from './components/LiveStreamModal';
 
 import { DEFAULT_IMAGES } from './constants';
 
@@ -33,6 +34,7 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [images] = useState<Record<string, string>>(DEFAULT_IMAGES);
   const [currentPage, setCurrentPage] = useState<Page>(() => pathToPage(window.location.pathname));
+  const [isLiveModalOpen, setIsLiveModalOpen] = useState<boolean>(true);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -139,6 +141,7 @@ const App: React.FC = () => {
       </main>
       <Footer images={images} onNavigate={navigateTo} />
       <ScrollToTop />
+      <LiveStreamModal isOpen={isLiveModalOpen} onClose={() => setIsLiveModalOpen(false)} />
     </div>
   );
 };
