@@ -11,15 +11,17 @@ import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import BemViverPage from './components/BemViverPage';
 import CapacitacaoPage from './components/CapacitacaoPage';
 import PasswordModal from './components/PasswordModal';
+import DesignSystemPage from './components/DesignSystemPage';
 
 import { DEFAULT_IMAGES } from './constants';
 
-type Page = 'home' | 'privacidade' | 'bemviver' | 'capacitacao';
+type Page = 'home' | 'privacidade' | 'bemviver' | 'capacitacao' | 'design-system';
 
 const pathToPage = (pathname: string): Page => {
   if (pathname === '/privacidade') return 'privacidade';
   if (pathname === '/bemviver') return 'bemviver';
   if (pathname === '/capacitacao') return 'capacitacao';
+  if (pathname === '/design-system') return 'design-system';
   return 'home';
 };
 
@@ -59,6 +61,7 @@ const App: React.FC = () => {
     if (page === 'privacidade') newPath = '/privacidade';
     else if (page === 'bemviver') newPath = '/bemviver';
     else if (page === 'capacitacao') newPath = '/capacitacao';
+    else if (page === 'design-system') newPath = '/design-system';
     window.history.pushState({}, '', newPath);
     setCurrentPage(page as Page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -104,6 +107,18 @@ const App: React.FC = () => {
   if (currentPage === 'capacitacao') {
     return (
       <CapacitacaoPage
+        toggleDarkMode={toggleDarkMode}
+        isDarkMode={isDarkMode}
+        images={images}
+        onNavigateHome={navigateHome}
+        onNavigate={navigateTo}
+      />
+    );
+  }
+
+  if (currentPage === 'design-system') {
+    return (
+      <DesignSystemPage
         toggleDarkMode={toggleDarkMode}
         isDarkMode={isDarkMode}
         images={images}

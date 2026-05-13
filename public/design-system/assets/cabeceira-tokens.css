@@ -1,0 +1,238 @@
+/* Cabeceira Design System — Colors & Type tokens
+ * Lifted 1:1 from the production tailwind config and Plus Jakarta Sans usage
+ * in the cabeceira-site codebase (index.html + components/*).
+ */
+
+/* ---------------------------------------------------------------- */
+/* FONTS                                                            */
+/* The site loads Plus Jakarta Sans + Material Symbols Outlined     */
+/* + Material Icons Round directly from Google Fonts.               */
+/* ---------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Round");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+:root {
+  /* ————————————————————————————————————————————————————————— */
+  /* BRAND COLORS (tailwind.config)                              */
+  /* ————————————————————————————————————————————————————————— */
+  --primary:          #013220;   /* deep forest green — brand anchor */
+  --accent:           #F89D93;   /* warm coral / "café cereja" — accents, calls-to-action on dark */
+  --bg-light:         #FAFAF8;   /* page background, light mode */
+  --bg-dark:          #0A120E;   /* page background, dark mode */
+
+  /* Soft tints derived from primary/accent (used with opacity in-code) */
+  --primary-05:       rgba(1, 50, 32, 0.05);
+  --primary-10:       rgba(1, 50, 32, 0.10);
+  --primary-20:       rgba(1, 50, 32, 0.20);
+  --accent-10:        rgba(248, 157, 147, 0.10);
+  --accent-20:        rgba(248, 157, 147, 0.20);
+
+  /* ————————————————————————————————————————————————————————— */
+  /* NEUTRAL SCALE — tailwind slate, used everywhere for text/ui  */
+  /* ————————————————————————————————————————————————————————— */
+  --slate-50:   #f8fafc;
+  --slate-100:  #f1f5f9;
+  --slate-200:  #e2e8f0;
+  --slate-300:  #cbd5e1;
+  --slate-400:  #94a3b8;
+  --slate-500:  #64748b;
+  --slate-600:  #475569;
+  --slate-700:  #334155;
+  --slate-800:  #1e293b;
+  --slate-900:  #0f172a;
+
+  /* ————————————————————————————————————————————————————————— */
+  /* SEMANTIC COLOR TOKENS                                        */
+  /* ————————————————————————————————————————————————————————— */
+  --fg-1:             var(--slate-800);   /* body text, light */
+  --fg-2:             var(--slate-600);   /* secondary text */
+  --fg-3:             var(--slate-500);   /* muted captions */
+  --fg-muted:         var(--slate-400);   /* eyebrow, disabled */
+  --fg-on-primary:    #ffffff;
+  --fg-on-accent:     var(--primary);
+
+  --heading:          var(--primary);     /* big display headings, light */
+  --heading-dark:     #ffffff;            /* big display headings, dark */
+
+  --border:           var(--slate-200);
+  --border-dark:      var(--slate-800);
+  --surface:          #ffffff;
+  --surface-alt:      var(--slate-50);
+  --surface-dark:     var(--slate-800);
+  --surface-dark-alt: var(--slate-900);
+
+  --link:             var(--primary);
+  --link-dark:        var(--accent);
+
+  /* ————————————————————————————————————————————————————————— */
+  /* TYPOGRAPHY                                                   */
+  /* ————————————————————————————————————————————————————————— */
+  --font-sans:    "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+                  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans);        /* same family, heavier weights */
+  --font-icon:    "Material Icons Round", "Material Symbols Outlined";
+
+  /* Weights actually used across the codebase */
+  --fw-light:     300;
+  --fw-regular:   400;
+  --fw-medium:    500;  /* nav links */
+  --fw-semibold:  600;
+  --fw-bold:      700;  /* section headings, buttons */
+  --fw-extrabold: 800;  /* hero + section display headings */
+  --fw-black:     900;  /* hero CTA */
+
+  /* Scale — tailwind defaults matched to how components use them */
+  --fs-xs:   0.75rem;   /* 12px — eyebrow uppercase */
+  --fs-sm:   0.875rem;  /* 14px — small captions */
+  --fs-base: 1rem;      /* 16px — body */
+  --fs-lg:   1.125rem;  /* 18px — lead paragraph */
+  --fs-xl:   1.25rem;   /* 20px */
+  --fs-2xl:  1.5rem;    /* 24px — card headings h3 */
+  --fs-3xl:  1.875rem;  /* 30px — section h2 (mobile) */
+  --fs-4xl:  2.25rem;   /* 36px — section h2 */
+  --fs-5xl:  3rem;      /* 48px — big section h2 / hero (mobile) */
+  --fs-6xl:  3.75rem;   /* 60px — About h2 */
+  --fs-7xl:  4.5rem;    /* 72px — hero h1 (desktop) */
+
+  --lh-tight:   1.1;    /* hero headings leading-[1.1] */
+  --lh-snug:    1.25;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.625;  /* body paragraphs */
+
+  --tracking-tight:  -0.025em;
+  --tracking-normal: 0;
+  --tracking-wider:  0.05em;
+  --tracking-widest: 0.1em;  /* eyebrow uppercase */
+
+  /* ————————————————————————————————————————————————————————— */
+  /* RADII — default tailwind override is 12px; site stacks big   */
+  /* pills (2rem, 2.5rem, 3rem, 4rem) on cards + hero frames.     */
+  /* ————————————————————————————————————————————————————————— */
+  --radius-sm:    0.375rem;  /* 6px */
+  --radius:       0.75rem;   /* 12px — tailwind DEFAULT override */
+  --radius-lg:    1rem;      /* 16px */
+  --radius-xl:    1.25rem;   /* 20px — dropdown menus */
+  --radius-2xl:   1.5rem;    /* 24px — buttons, small cards */
+  --radius-3xl:   2rem;      /* 32px — testimonial cards */
+  --radius-4xl:   2.5rem;    /* 40px — service cards */
+  --radius-5xl:   3rem;      /* 48px — hero image frames, CTA block */
+  --radius-6xl:   4rem;      /* 64px — vision image frame */
+  --radius-full:  9999px;    /* pills, badges, avatars */
+
+  /* ————————————————————————————————————————————————————————— */
+  /* SHADOWS — tailwind defaults + tinted brand shadows on CTAs   */
+  /* ————————————————————————————————————————————————————————— */
+  --shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow:     0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl:  0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-primary-20: 0 20px 30px -10px rgba(1, 50, 32, 0.20);  /* brand CTA lift */
+  --shadow-accent-10:  0 20px 30px -10px rgba(248, 157, 147, 0.10);
+
+  /* Glass card effect (used over hero imagery) */
+  --glass-bg:     rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur:   blur(8px);
+
+  /* ————————————————————————————————————————————————————————— */
+  /* SPACING — tailwind scale (8pt baseline)                      */
+  /* ————————————————————————————————————————————————————————— */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;   /* standard section vertical padding */
+
+  --container-max: 80rem;    /* max-w-7xl = 1280px */
+  --container-px:  1rem;     /* sm: 1.5rem, lg: 2rem */
+}
+
+/* ---------------------------------------------------------------- */
+/* DARK MODE overrides — site uses class="dark" on <html>           */
+/* ---------------------------------------------------------------- */
+.dark {
+  --fg-1:        var(--slate-100);
+  --fg-2:        var(--slate-300);
+  --fg-3:        var(--slate-400);
+  --fg-muted:    var(--slate-500);
+  --heading:     #ffffff;
+  --border:      var(--slate-800);
+  --surface:     var(--slate-800);
+  --surface-alt: var(--slate-900);
+  --link:        var(--accent);
+}
+
+/* ---------------------------------------------------------------- */
+/* SEMANTIC TYPE — ready-made classes mirroring in-code usage       */
+/* ---------------------------------------------------------------- */
+html { font-family: var(--font-sans); color: var(--fg-1); background: var(--bg-light); }
+.dark html, html.dark { background: var(--bg-dark); color: var(--fg-1); }
+
+.h-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: clamp(3rem, 6vw, var(--fs-7xl));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--heading);
+}
+.h1 {
+  font-weight: var(--fw-extrabold);
+  font-size: clamp(2.25rem, 4.5vw, var(--fs-6xl));
+  line-height: var(--lh-tight);
+  color: var(--heading);
+}
+.h2 {
+  font-weight: var(--fw-extrabold);
+  font-size: clamp(1.875rem, 3.5vw, var(--fs-5xl));
+  line-height: var(--lh-snug);
+  color: var(--heading);
+}
+.h3 {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  color: var(--heading);
+}
+.eyebrow {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.lead {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+}
+.body {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+}
+.caption {
+  font-size: var(--fs-sm);
+  color: var(--fg-3);
+}
+.badge-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--accent-20);
+  color: var(--primary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  padding: .375rem 1rem;
+  border-radius: var(--radius-full);
+}
+
+/* Material Icons helpers (mirroring codebase) */
+.material-icons-round, .material-symbols-outlined { font-family: var(--font-icon); font-weight: normal; font-style: normal; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }

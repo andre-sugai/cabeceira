@@ -163,6 +163,12 @@ const Footer: React.FC<FooterProps> = ({ images, onNavigate }) => {
                 >
                   FAQ
                 </button>
+                <button
+                  onClick={() => onNavigate('design-system')}
+                  className="hover:text-primary dark:hover:text-accent transition-colors bg-transparent border-none cursor-pointer"
+                >
+                  Design System
+                </button>
               </div>
             </div>
           </div>
